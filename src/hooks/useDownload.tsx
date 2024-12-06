@@ -1,6 +1,6 @@
-const useDownload = (params: { url: string, name: string }) => {
+const useDownload = () => {
 
-    return () => {
+    return (params: { url: string, name: string }) => {
 
         const link = document.createElement("a");
 

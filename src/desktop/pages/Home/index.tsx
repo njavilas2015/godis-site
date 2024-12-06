@@ -40,10 +40,21 @@ const App = (): JSX.Element => {
 
   const github = useGitHubStore(state => state.data)
 
-  const download = useDownload({
-    url: github.assets[0].browser_download_url, 
-    name: github.assets[0].name
-  })
+  const download = useDownload()
+
+  const handleDownload = () => {
+
+    if (github.assets.length === 0) {
+      return
+    }
+
+    const data = github.assets[0]
+
+    download({
+      url: data.browser_download_url, 
+      name: data.name
+    })
+  }
 
   return (
     <Layout>
@@ -52,7 +63,7 @@ const App = (): JSX.Element => {
           <h1>Storage in-memory</h1>
           <h4>Godis es  un sistema de base de datos en memoria de alta velocidad y baja latencia, escrita desde cero utilizando las características y ventajas del lenguaje Go</h4>
 
-          <button onClick={download}>
+          <button onClick={handleDownload}>
             Download {github.tag_name}
           </button>
         </div>
