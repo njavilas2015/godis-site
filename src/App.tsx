@@ -1,26 +1,10 @@
 import Desktop from '@/desktop'
-import useGitHubStore from '@store/useGitHubStore'
-import { useEffect } from 'react'
+import useGitHub from '@hooks/useGitHub'
 
 const App = (): JSX.Element => {
-
-  const github = useGitHubStore()
-
-  useEffect(() => {
-
-    const url: string = "https://api.github.com/repos/njavilas2015/godis/releases/latest"
-
-    const controller: AbortController = new AbortController()
-
-    github.fetch(url, controller.signal)
-
-    return () => {
-
-      controller.abort()
-    }
-
-  }, [])
-
+ 
+  useGitHub()
+  
   return (
     <Desktop>
 

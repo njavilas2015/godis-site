@@ -11,6 +11,7 @@ export default defineConfig({
       '@mobile': path.resolve(__dirname, 'src', 'mobile'),
       '@store': path.resolve(__dirname, 'src', 'store'),
       '@components': path.resolve(__dirname, 'src', 'components'),
+      '@hooks': path.resolve(__dirname, 'src', 'hooks'),
     },
   },
 })
